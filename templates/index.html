@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Clustering</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      form {
+        width: 400px;
+      }
+
+      .input-box {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        margin: auto;
+      }
+
+      .input-box label {
+        padding-top: 10px;
+      }
+
+      .input-box .input,
+      button {
+        height: 30px;
+        border-radius: 5px;
+      }
+
+      .input-box .input:hover,
+      button:hover,
+      .input-box .input:active,
+      button:active {
+        border: 5px solid #aaa;
+      }
+
+      button {
+        justify-content: center;
+      }
+
+      .output {
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        margin-top: 20px;
+        margin: auto;
+        padding-top: 10px;
+        align-items: center;
+        border-radius: 5px;
+      }
+
+      .output p,
+      .output .value {
+        font-size: 20px;
+      }
+
+      .output p {
+        padding-top: 30px;
+      }
+
+      .output .value {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        background-color: lightblue;
+        color: black;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+
+    <form class="input-box" action="/input" method="POST">
+      <label class="label">Gender</label>
+      <select class="input" name="gender">
+        <option value="0">Female</option>
+        <option value="1">Male</option>
+      </select>
+      <label class="label">Age</label>
+      <input class="input" type="txt" name="age" />
+      <label class="label">Anual Income (k$)</label>
+      <input class="input" type="txt" name="abual_income" />
+      <label class="label">Spending Score(1-100)</label>
+      <input class="input" type="txt" name="spending_score" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="output">
+      <p>Customer belongs to cluster</p>
+      <div class="value">{{result}}</div>
+    </div>
+  </body>
+</html>
